@@ -147,7 +147,7 @@ Setter:
 void set<name>(type) const;
 ```
 
-Where <name> is the name of the property as declared with the
+Where name is the name of the property as declared with the
 `PROPERTYPP_DECLARE` macro and type is the type of the property. For example,
 the accessor methods for the `n` property in the `Example` class above
 could be written as follows:
