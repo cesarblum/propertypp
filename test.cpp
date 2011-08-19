@@ -225,5 +225,12 @@ int main()
    a.o -= 4;
    assert(a.o == p);
 
+   a.n = 0;
+   ++a.n += 2;
+   assert(a.n == 3);
+
+   ++(a.n += 3);
+   assert(a.n == 7);
+
    return 0;
 }

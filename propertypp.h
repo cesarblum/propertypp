@@ -87,8 +87,11 @@ namespace propertypp
             property_type operator=(property_type rhs)
             { return set_(rhs); }
 
-            property_type operator++()
-            { return set_(get_(0) + 1); }
+            property_base<property_type>& operator++()
+            {
+                set_(get_(0) + 1);
+                return *this;
+            }
 
             property_type operator++(int)
             {
@@ -97,8 +100,11 @@ namespace propertypp
                 return retVal;
             }
 
-            property_type operator--()
-            { return set_(get_(0) - 1); }
+            property_base<property_type>& operator--()
+            {
+                set_(get_(0) - 1);
+                return *this;
+            }
 
             property_type operator--(int)
             {
