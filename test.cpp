@@ -8,12 +8,14 @@ class Test
     public:
         Test();
         Test(const Test& rhs);
+        PROPERTYPP_DECLARE(bool, b, b_)
         PROPERTYPP_DECLARE(int, n, n_)
         PROPERTYPP_DECLARE(float, m, m_)
         PROPERTYPP_DECLARE(double, d, d_)
         PROPERTYPP_DECLARE(Test*, o, o_)
 };
 
+PROPERTYPP_SYNTHESIZE(Test, bool, b, b_);
 PROPERTYPP_SYNTHESIZE(Test, int, n, n_);
 
 PROPERTYPP_SYNTHESIZE_GETTER(Test, double, d, d_);
@@ -39,6 +41,7 @@ void Test::setm(float value)
 
 Test::Test()
 {
+    PROPERTYPP_INIT(b);
     PROPERTYPP_INIT(n);
     PROPERTYPP_INIT(m);
     PROPERTYPP_INIT(d);
@@ -47,6 +50,7 @@ Test::Test()
 
 Test::Test(const Test& rhs)
 {
+    PROPERTYPP_COPY(b, rhs);
     PROPERTYPP_COPY(n, rhs);
     PROPERTYPP_COPY(m, rhs);
     PROPERTYPP_COPY(d, rhs);
@@ -56,6 +60,7 @@ Test::Test(const Test& rhs)
 int main()
 {
    Test a;
+   assert(a.b == false);
    assert(a.n == 0);
    assert(a.m == 0);
    assert(a.d == 0);
@@ -179,6 +184,9 @@ int main()
 
    v = --a.n;
    assert(v == 0);
+
+   a.b = !a.b;
+   assert(a.b);
 
    return 0;
 }
