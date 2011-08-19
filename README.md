@@ -227,14 +227,6 @@ copying another will cause that property to be set on the original object also.
 * propertypp currently only works with built-in and pointer property types.
 * The behind-the-scenes calls to getters and setters have the cost of
   virtual function calls.
-* Compound assignment operators don't work with properties e.g. the following
-  code won't compile:
-
-```c++
-Example e;
-e.n = 10;
-e += 1;
-```
 
 # License #
 
