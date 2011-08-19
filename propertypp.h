@@ -167,8 +167,6 @@ namespace propertypp
 
             using property_base<property_type>::operator property_type;
             using property_base<property_type>::operator=;
-            using property_base<property_type>::operator++;
-            using property_base<property_type>::operator--;
     };
 
     template <typename property_type>
@@ -186,8 +184,6 @@ namespace propertypp
 
             using property_base<property_type*>::operator property_type*;
             using property_base<property_type*>::operator=;
-            using property_base<property_type*>::operator++;
-            using property_base<property_type*>::operator--;
 
             property_type* operator->() { return this->get_(0); }
 
