@@ -82,70 +82,70 @@ namespace propertypp
                   set_(std::bind1st(std::mem_fun(set), obj))
             { }
 
-            operator property_type() { return this->get_(0); }
+            operator property_type() { return get_(0); }
 
             property_type operator=(property_type rhs)
-            { return this->set_(rhs); }
+            { return set_(rhs); }
 
             property_type operator++()
-            { return this->set_(this->get_(0) + 1); }
+            { return set_(get_(0) + 1); }
 
             property_type operator++(int)
             {
-                property_type retVal = this->get_(0);
-                this->set_(this->get_(0) + 1);
+                property_type retVal = get_(0);
+                set_(get_(0) + 1);
                 return retVal;
             }
 
             property_type operator--()
-            { return this->set_(this->get_(0) - 1); }
+            { return set_(get_(0) - 1); }
 
             property_type operator--(int)
             {
-                property_type retVal = this->get_(0);
-                this->set_(this->get_(0) - 1);
+                property_type retVal = get_(0);
+                set_(get_(0) - 1);
                 return retVal;
             }
 
             template <typename T>
             property_type operator+=(const T& rhs)
-            { return this->set_(this->get_(0) + rhs); }
+            { return set_(get_(0) + rhs); }
 
             template <typename T>
             property_type operator-=(const T& rhs)
-            { return this->set_(this->get_(0) - rhs); }
+            { return set_(get_(0) - rhs); }
 
             template <typename T>
             property_type operator*=(const T& rhs)
-            { return this->set_(this->get_(0) * rhs); }
+            { return set_(get_(0) * rhs); }
 
             template <typename T>
             property_type operator/=(const T& rhs)
-            { return this->set_(this->get_(0) / rhs); }
+            { return set_(get_(0) / rhs); }
 
             template <typename T>
             property_type operator%=(const T& rhs)
-            { return this->set_(this->get_(0) % rhs); }
+            { return set_(get_(0) % rhs); }
 
             template <typename T>
             property_type operator&=(const T& rhs)
-            { return this->set_(this->get_(0) & rhs); }
+            { return set_(get_(0) & rhs); }
 
             template <typename T>
             property_type operator|=(const T& rhs)
-            { return this->set_(this->get_(0) | rhs); }
+            { return set_(get_(0) | rhs); }
 
             template <typename T>
             property_type operator^=(const T& rhs)
-            { return this->set_(this->get_(0) ^ rhs); }
+            { return set_(get_(0) ^ rhs); }
 
             template <typename T>
             property_type operator<<=(const T& rhs)
-            { return this->set_(this->get_(0) << rhs); }
+            { return set_(get_(0) << rhs); }
 
             template <typename T>
             property_type operator>>=(const T& rhs)
-            { return this->set_(this->get_(0) >> rhs); }
+            { return set_(get_(0) >> rhs); }
 
         protected:
             propertypp::ftor<property_type (int)> get_;
