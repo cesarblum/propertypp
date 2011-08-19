@@ -144,5 +144,41 @@ int main()
    assert(a.o->d == 0);
    assert(a.o->o == 0);
 
+   a.n = -a.n;
+   assert(a.n == -4);
+
+   assert(a.n != a.m);
+   a.n = 12;
+   a.m = 12;
+   assert(a.n == a.m);
+
+   ++a.n;
+   assert(a.n == 13);
+
+   a.n++;
+   assert(a.n == 14);
+
+   --a.n;
+   assert(a.n == 13);
+
+   a.n--;
+   assert(a.n == 12);
+
+   a.n = 0;
+   assert(a.n == 0);
+
+   int v;
+   v = a.n++;
+   assert(v == 0);
+
+   v = ++a.n;
+   assert(v == 2);
+
+   v = a.n--;
+   assert(v == 2);
+
+   v = --a.n;
+   assert(v == 0);
+
    return 0;
 }

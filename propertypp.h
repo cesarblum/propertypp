@@ -87,6 +87,26 @@ namespace propertypp
             property_type operator=(property_type rhs)
             { return this->set_(rhs); }
 
+            property_type operator++()
+            { return this->set_(this->get_(0) + 1); }
+
+            property_type operator++(int)
+            {
+                property_type retVal = this->get_(0);
+                this->set_(this->get_(0) + 1);
+                return retVal;
+            }
+
+            property_type operator--()
+            { return this->set_(this->get_(0) - 1); }
+
+            property_type operator--(int)
+            {
+                property_type retVal = this->get_(0);
+                this->set_(this->get_(0) - 1);
+                return retVal;
+            }
+
         protected:
             propertypp::ftor<property_type (int)> get_;
             propertypp::ftor<property_type (property_type)> set_;
@@ -107,6 +127,8 @@ namespace propertypp
 
             using property_base<property_type>::operator property_type;
             using property_base<property_type>::operator=;
+            using property_base<property_type>::operator++;
+            using property_base<property_type>::operator--;
     };
 
     template <typename property_type>
@@ -124,6 +146,8 @@ namespace propertypp
 
             using property_base<property_type*>::operator property_type*;
             using property_base<property_type*>::operator=;
+            using property_base<property_type*>::operator++;
+            using property_base<property_type*>::operator--;
 
             property_type* operator->() { return this->get_(0); }
 
