@@ -188,5 +188,42 @@ int main()
    a.b = !a.b;
    assert(a.b);
 
+   a.n += 4;
+   assert(a.n == 4);
+
+   a.n -= 3;
+   assert(a.n == 1);
+
+   a.n *= 16;
+   assert(a.n == 16);
+
+   a.n /= 2;
+   assert(a.n == 8);
+
+   a.n %= 3;
+   assert(a.n == 2);
+
+   a.n &= 3;
+   assert(a.n == 2);
+
+   a.n |= 1;
+   assert(a.n == 3);
+
+   a.n ^= 1;
+   assert(a.n == 2);
+
+   a.n <<= 1;
+   assert(a.n == 4);
+
+   a.n >>= 1;
+   assert(a.n == 2);
+
+   Test* p = a.o;
+   a.o += 4;
+   assert(a.o == p + 4);
+
+   a.o -= 4;
+   assert(a.o == p);
+
    return 0;
 }

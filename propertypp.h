@@ -107,6 +107,46 @@ namespace propertypp
                 return retVal;
             }
 
+            template <typename T>
+            property_type operator+=(const T& rhs)
+            { return this->set_(this->get_(0) + rhs); }
+
+            template <typename T>
+            property_type operator-=(const T& rhs)
+            { return this->set_(this->get_(0) - rhs); }
+
+            template <typename T>
+            property_type operator*=(const T& rhs)
+            { return this->set_(this->get_(0) * rhs); }
+
+            template <typename T>
+            property_type operator/=(const T& rhs)
+            { return this->set_(this->get_(0) / rhs); }
+
+            template <typename T>
+            property_type operator%=(const T& rhs)
+            { return this->set_(this->get_(0) % rhs); }
+
+            template <typename T>
+            property_type operator&=(const T& rhs)
+            { return this->set_(this->get_(0) & rhs); }
+
+            template <typename T>
+            property_type operator|=(const T& rhs)
+            { return this->set_(this->get_(0) | rhs); }
+
+            template <typename T>
+            property_type operator^=(const T& rhs)
+            { return this->set_(this->get_(0) ^ rhs); }
+
+            template <typename T>
+            property_type operator<<=(const T& rhs)
+            { return this->set_(this->get_(0) << rhs); }
+
+            template <typename T>
+            property_type operator>>=(const T& rhs)
+            { return this->set_(this->get_(0) >> rhs); }
+
         protected:
             propertypp::ftor<property_type (int)> get_;
             propertypp::ftor<property_type (property_type)> set_;
