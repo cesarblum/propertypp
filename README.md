@@ -86,6 +86,7 @@ class Example
         Example();
         PROPERTYPP_DECLARE(int, n, n_)
 };
+```
 
 The arguments to `PROPERTYPP_DECLARE` are the type of the property (`int` in
 the example), the name of the property (`n` in the example) and the name of the
