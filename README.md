@@ -52,7 +52,13 @@ Example::Example()
     PROPERTYPP_INIT(n); // initialize property n
 }
 
-PROPERTYPP_SYNTHESIZE(Example, int, n, n_) // synthesize accessors for n
+PROPERTYPP_SYNTHESIZE_GETTER(Example, int, n, n_) // synthesize getter
+
+void setn(int value)
+{
+    if (value >= 0)
+        n_ = value;
+}
 
 int main()
 {
@@ -63,8 +69,8 @@ int main()
     e.n = 5;
     std::cout << e.n << std::endl; // should print 5
 
-    int n = e.n;
-    std::cout << n << std::endl; // should print 5
+    e.n = -1;
+    std::cout << e.n << std::endl; // should print 5
 
     return 0;
 }
