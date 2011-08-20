@@ -54,7 +54,7 @@ Example::Example()
 
 PROPERTYPP_SYNTHESIZE_GETTER(Example, int, n, n_) // synthesize getter
 
-void setn(int value)
+void setn(int value) // custom setter
 {
     if (value >= 0)
         n_ = value;
