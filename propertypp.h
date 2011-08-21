@@ -201,7 +201,6 @@ namespace propertypp
                 : property_base<property_type>(obj, get, set)
             { }
 
-            using property_base<property_type>::operator property_type;
             using property_base<property_type>::operator=;
     };
 
@@ -218,7 +217,6 @@ namespace propertypp
                 : property_base<property_type*>(obj, get, set)
             { }
 
-            using property_base<property_type*>::operator property_type*;
             using property_base<property_type*>::operator=;
 
             property_type* operator->() { return this->get_(0); }
